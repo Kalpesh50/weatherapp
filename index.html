@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather App</title>
+  <link rel="stylesheet" type="text/css" rel="noopener" target="_blank" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary curved-background">
+    <div class="container-fluid">
+     <a class="navbar-brand" href="#">Weather App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Connect with me
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="https://www.linkedin.com/in/kalpesh-deore-b6b916238" target="_blank">LinkedIn</a></li>
+              <li><a class="dropdown-item" href="https://www.instagram.com/kalpeshdeore.50/" target="_blank">Instagram</a></li>
+
+              <li><a class="dropdown-item" href="https://wa.me/919028932272" target="_blank">Whatsapp</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input id="city" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container ">
+    <h1 class="my-4 text-center">Weather For <span id="cityName"> </span></h1>
+    <main class="grid">
+      <article>
+        <img src="https://runningmagazine.ca/wp-content/uploads/2019/08/gettyimages-1002295536-170667a.jpg"
+          alt="img not found">
+        <div class="text">
+          <h3>Temperature</h3>
+          <h2><span id="temp"> </span> °C</h2>
+
+        </div>
+      </article>
+
+
+      <article>
+        <img
+          src="data:image/png;base64,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"
+          alt="img not found">
+        <div class="text">
+          <h3>Humidity</h3>
+          <h2><span id="humidity"> </span> %</h2>
+        </div>
+      </article>
+
+
+      <article>
+        <img
+          src="https://png.pngtree.com/png-clipart/20220106/ourlarge/pngtree-vector-wind-speed-airflow-png-picture-png-image_4092540.png"
+          alt="img not found">
+        <div class="text">
+          <h3>Wind Speed</h3>
+          <h2><span id="wind_speed"> </span> km/hr</h2>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <p class="text-center">Made By Kalpesh Deore</p>
+  <div class="curved-background">
+    <div class="curved-background__curved"></div>
+</div>
+
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
